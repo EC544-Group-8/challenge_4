@@ -6,7 +6,7 @@ var db = require('../db.js');
 exports.create = function(sensor_id, reading, done) {
   var d = new Date();
   date_received = [d.getFullYear(),
-                '0'+(d.getMonth()+1),
+                (d.getMonth()+1),
                 d.getDate(),
                 ].join('-')+' '+
                [d.getHours(),
@@ -46,7 +46,7 @@ exports.getAllBySensor = function(sensor_id, done) {
 exports.getAllMostRecentFromLastTenMinutes = function(done) {
   var d = new Date();
   now = [d.getFullYear(),
-           '0'+(d.getMonth()+1),
+           (d.getMonth()+1),
             d.getDate(),
             ].join('-')+' '+
            [d.getHours(),
@@ -63,7 +63,7 @@ exports.getAllMostRecentFromLastTenMinutes = function(done) {
 exports.getMostRecent = function(done) {
   var d = new Date();
   now = [d.getFullYear(),
-           '0'+(d.getMonth()+1),
+           (d.getMonth()+1),
             d.getDate(),
             ].join('-')+' '+
            [d.getHours(),
@@ -81,7 +81,7 @@ exports.getMostRecent = function(done) {
 exports.getMostRecentBySensor = function(sensor_id, done) {
   var d = new Date();
   now = [d.getFullYear(),
-           '0'+(d.getMonth()+1),
+           (d.getMonth()+1),
             d.getDate(),
             ].join('-')+' '+
            [d.getHours(),
@@ -99,7 +99,7 @@ exports.getMostRecentBySensor = function(sensor_id, done) {
 exports.getAllByRange = function(range, done) {
   var d = new Date();
   var now = [d.getFullYear(),
-               '0'+(d.getMonth()+1),
+               (d.getMonth()+1),
                 d.getDate(),
                 ].join('-')+' '+
                [d.getHours(),
@@ -117,7 +117,7 @@ exports.getAllByRange = function(range, done) {
 exports.getBySensorByRange = function(sensor_id, range, done) {
   var d = new Date();
   var now = [d.getFullYear(),
-               '0'+(d.getMonth()+1),
+               (d.getMonth()+1),
                 d.getDate(),
                 ].join('-')+' '+
                [d.getHours(),
@@ -140,7 +140,7 @@ exports.getBySensorByRange = function(sensor_id, range, done) {
 exports.getAllForInterpolant = function(done) {
   var d = new Date();
   now = [d.getFullYear(),
-               '0'+(d.getMonth()+1),
+               (d.getMonth()+1),
                 d.getDate(),
                 ].join('-')+' '+
                [d.getHours(),
