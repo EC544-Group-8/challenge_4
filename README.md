@@ -12,8 +12,8 @@ create a system that will save data collected from a network of sensors and will
 - [ ] Graphics / video posted to piazza
 
 ### To-Do
-- [ ] Sense temperature on each of (5) Particle Nodes
-- [ ] Create a Google Cloud SQL server 
+- [X] Sense temperature on each of (5) Particle Nodes
+- [X] Create a Google Cloud SQL server 
 - [ ] Connect each Particle to the Database
 - [ ] Salvage front end from challenge 2 for live plots
 - [ ] Connect node.js server to database 
