@@ -156,9 +156,9 @@ $(document).ready(function () {
 					text: "Living Room Temperature"
 				},			
 				axisX:{
-					title:"Time"
+					title:"Time",
 					maximum: maxTime,
-					minimum: minTime,
+					minimum: minTime
 				},
 				axisY:{
 					title:"Temperature (°C)",
