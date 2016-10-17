@@ -104,8 +104,8 @@ $(document).ready(function () {
 				});
 			}
 
-			var minTime = new Date(2015,1,1);
-			var maxTime = new Date(2017,1,1);
+			// var minTime = new Date(2015,1,1);
+			// var maxTime = new Date(2017,1,1);
 
 			var minTime = new Date(2016,09,16,22,1,1,1);
 			var maxTime = new Date(2016,09,17,22,1,1,1);
@@ -116,9 +116,6 @@ $(document).ready(function () {
 				},			
 				axisX:{
 					title:"Time",
-
-					maximum: minTime,
-					minimum: maxTime,
 
 					maximum: maxTime,
 					minimum: minTime,
@@ -160,8 +157,8 @@ $(document).ready(function () {
 				},			
 				axisX:{
 					title:"Time"
-					maximum: minTime,
-					minimum: maxTime,
+					maximum: maxTime,
+					minimum: minTime,
 				},
 				axisY:{
 					title:"Temperature (°C)",
@@ -198,8 +195,8 @@ $(document).ready(function () {
 				},			
 				axisX:{
 					title:"Time"
-					maximum: minTime,
-					minimum: maxTime,
+					maximum: maxTime,
+					minimum: minTime,
 				},
 				axisY:{
 					title:"Temperature (°C)",
@@ -235,8 +232,8 @@ $(document).ready(function () {
 				},			
 				axisX:{
 					title:"Time"
-					maximum: minTime,
-					minimum: maxTime,
+					maximum: maxTime,
+					minimum: minTime,
 				},
 				axisY:{
 					title:"Temperature (°C)",
