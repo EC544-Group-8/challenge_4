@@ -103,16 +103,26 @@ $(document).ready(function () {
 					y: xtemp
 				});
 			}
+<<<<<<< HEAD
 			var minTime = new Date(2015,1,1);
 			var maxTime = new Date(2017,1,1);
+=======
+			var minTime = new Date(2016,09,16,22,1,1,1);
+			var maxTime = new Date(2016,09,17,22,1,1,1);
+>>>>>>> 81d0d38bfc76e34473d85194012c1dc7103c8c59
 			var sensor1_chart = new CanvasJS.Chart("sensor1",{
 				title :{
 					text: "Kitchen Temperature"
 				},			
 				axisX:{
 					title:"Time",
+<<<<<<< HEAD
 					maximum: minTime,
 					minimum: maxTime,
+=======
+					maximum: maxTime,
+					minimum: minTime,
+>>>>>>> 81d0d38bfc76e34473d85194012c1dc7103c8c59
 				},
 				axisY:{
 					title:"Temperature (°C)",
