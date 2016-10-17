@@ -103,14 +103,14 @@ $(document).ready(function () {
 					y: xtemp
 				});
 			}
-			var minTime = new Date(2015);
-			var maxTime = new Date(2017);
+			var minTime = new Date(2015,1,1);
+			var maxTime = new Date(2017,1,1);
 			var sensor1_chart = new CanvasJS.Chart("sensor1",{
 				title :{
 					text: "Kitchen Temperature"
 				},			
 				axisX:{
-					title:"Time"
+					title:"Time",
 					maximum: minTime,
 					minimum: maxTime,
 				},
@@ -149,7 +149,9 @@ $(document).ready(function () {
 					text: "Living Room Temperature"
 				},			
 				axisX:{
-					title:"Time (s)"
+					title:"Time"
+					maximum: minTime,
+					minimum: maxTime,
 				},
 				axisY:{
 					title:"Temperature (°C)",
@@ -185,7 +187,9 @@ $(document).ready(function () {
 					text: "Bedroom Temperature"
 				},			
 				axisX:{
-					title:"Time (s)"
+					title:"Time"
+					maximum: minTime,
+					minimum: maxTime,
 				},
 				axisY:{
 					title:"Temperature (°C)",
@@ -220,7 +224,9 @@ $(document).ready(function () {
 					text: "Office Temperature"
 				},			
 				axisX:{
-					title:"Time (s)"
+					title:"Time"
+					maximum: minTime,
+					minimum: maxTime,
 				},
 				axisY:{
 					title:"Temperature (°C)",
