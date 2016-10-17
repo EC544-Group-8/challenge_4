@@ -113,8 +113,8 @@ $(document).ready(function () {
 				},
 				axisY:{
 					title:"Temperature (°C)",
-					maximum: 40,
-					minimum: 0,
+					maximum: 100,
+					minimum: 32,
 				},
 				data: [{
 					type: "line",
