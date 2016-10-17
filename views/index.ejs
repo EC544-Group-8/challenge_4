@@ -1,4 +1,5 @@
-<!-- views/pages/index.ejs -->
+<!-- views/index.ejs -->
+<!-- real time view -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,16 +7,21 @@
     <% include partials/head %>
 </head>
 <body class="container">
-
     <header>
         <% include partials/header %>
     </header>
 
     <main>
-        <div class="jumbotron">
-            <h1><%= title %></h1>
-            <p>Click Measurements to see Real-time and Historic temperature data</p>
-        </div>
+		<div class="row" style="height:750vh;">
+			
+				<div id="sensor1"></div>
+				<div id="sensor2"></div>
+				<div id="sensor3"></div>
+				<div id="sensor4"></div>
+				<div id="sensor5"></div>
+
+		</div>
+
     </main>
 
     <footer>
@@ -23,4 +29,8 @@
     </footer>
     
 </body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/canvasjs.min.js"></script>
+<script type="text/javascript" src="/javascripts/live_charts.js"></script>
 </html>
+
