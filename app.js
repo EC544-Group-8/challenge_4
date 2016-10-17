@@ -47,7 +47,7 @@ app.post('/save_temp', function(req, res){
 
 // For retreiving the historic average data for each sensor 
 app.get('/get_hist_sensor/1', function(req,res) {
-  Measurement.getAllBySensor('430034000947353235303037', function (err, hist_data) {
+  Measurement.getAllBySensor(430034000947353235303037, function (err, hist_data) {
     console.log('TRYING TO GET SENSOR 1 DATA...');
     if(hist_data) {
       res.send(hist_data);
