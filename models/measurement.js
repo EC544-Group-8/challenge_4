@@ -133,28 +133,6 @@ exports.getBySensorByRange = function(sensor_id, range, done) {
 
 
 
-// TODO: Update this or delete it, as it duplicates the exports.getAll function as currently written
-// Query to get data for linear interpolation 
-// Then we will need to build 2D vectors of temp and time 
-// for each sensor and then pass this data to the interpolation 
-exports.getAllForInterpolant = function(done) {
-  var d = new Date();
-  now = [d.getFullYear(),
-               (d.getMonth()+1),
-                d.getDate(),
-                ].join('-')+' '+
-               [d.getHours(),
-                d.getMinutes(),
-                d.getSeconds()].join(':');
-  
-  db.get().query('SELECT * FROM measurements', function (err,rows) {
-    if(err) return done(err);
-    done(null, rows);
-  });
-};
-
-// Query to get data necessary for Total Historical Average
-// Maybe we want to store each calulated Total average into another table
 
 
 
