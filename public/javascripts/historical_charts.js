@@ -86,7 +86,9 @@ $(document).ready(function () {
 		// 	}
 		// 	history_chart.render();
 		// });
-
+		var minTime = new Date(2016,09,16,22,1,1,1);
+		var maxTime = new Date(2016,09,17,22,1,1,1);
+		
 		$.get('/get_hist_sensor/1', function (s1_hist_data) {
 			console.log('GETTING HIST 1 DATA...');
 			for (var i = 0; i < s1_hist_data.length; i++) {
@@ -106,9 +108,6 @@ $(document).ready(function () {
 
 			// var minTime = new Date(2015,1,1);
 			// var maxTime = new Date(2017,1,1);
-
-			var minTime = new Date(2016,09,16,22,1,1,1);
-			var maxTime = new Date(2016,09,17,22,1,1,1);
 
 			var sensor1_chart = new CanvasJS.Chart("sensor1",{
 				title :{
