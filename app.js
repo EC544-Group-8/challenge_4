@@ -39,6 +39,18 @@ app.use('/measurements', measurements);
 var Average = require('./models/average.js');
 var Measurement = require('./models/measurement.js');
 
+// For saving any new data readings from the Particle cloud webhook
+app.post('/save_temp', function(req, res){
+  // console.log(req);
+  var reading = req.body['data'];
+  var id = req.body['coreid'];
+  var date_published = req.body['published_at'];
+
+  Measurement.create(id, reading, function (err, insert_id) {
+    console.log('inserted reading as id ' + insert_id);
+  });
+});
+
 // For retreiving the current average temp
 app.get('/get_current_avg_temp', function(req, res){
   Average.getMostRecent(function(err, avg_temps){
