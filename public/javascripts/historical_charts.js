@@ -110,7 +110,7 @@ $(document).ready(function () {
 					text: "Kitchen Temperature"
 				},			
 				axisX:{
-					title:"Time"
+					title:"Time",
 					maximum: minTime,
 					minimum: maxTime,
 				},
