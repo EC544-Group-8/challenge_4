@@ -42,14 +42,15 @@ var Measurement = require('./models/measurement.js');
 // For saving any new data readings from the Particle cloud webhook
 app.post('/save_temp', function(req, res){
   // console.log(req);
-  var reading =  JSON.stringify(req.body['data']);
-  var id =  JSON.stringify(req.body['coreid']);
-  var date_published = JSON.stringify(req.body['published_at']);
+  var reading = req.body['data'];
+  var id = req.body['coreid'];
+  var date_published = req.body['published_at'];
   console.log(id);
   console.log(reading);
   console.log(date_published);
-  Measurement.create(id.substr(0,10), reading, function (err, insert_id) {
-        console.log('inserted reading as id ' + insert_id);
+  Measurement.create(id, reading, function (err, insert_id) {
+    console.log(err);
+    console.log('inserted reading as id ' + insert_id);
   });
 });
 

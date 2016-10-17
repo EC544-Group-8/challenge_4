@@ -50,7 +50,7 @@ DROP TABLE IF EXISTS `measurements`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `measurements` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sensor_id` int(11) DEFAULT NULL,
+  `sensor_id` char(25) DEFAULT NULL,
   `reading` float(8,2) DEFAULT NULL,
   `date_received` datetime DEFAULT NULL,
   `date_added` timestamp DEFAULT CURRENT_TIMESTAMP,
