@@ -5,18 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('./db');
-//var SerialPort = require("serialport");
 
-// var portName = process.argv[2],
-// portConfig = {
-//   baudRate: 115200,
-//   parser: SerialPort.parsers.readline("\n")
-// };
-// var sp;
-// sp = new SerialPort.SerialPort(portName, portConfig);
 // Create variables for the file location of any routes (connected to views)
 var routes = require('./routes/index');
-var measurements = require('./routes/measurements');
+var historical = require('./routes/historical');
 
 var app = express();
 
@@ -33,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/measurements', measurements);
+app.use('/historical', historical);
 
 // --------- DEFINE AJAX POST REQUESTS HERE --------- //
 var Average = require('./models/average.js');

@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET measurement listing. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Real-Time' });
+	// Render the historical.ejs view
+	res.render('historical', { title: 'Historical'});
 });
 
 module.exports = router;

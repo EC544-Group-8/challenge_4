@@ -31,47 +31,18 @@ a {
 	margin:auto;
 }
 
-#average {
-	height: 25%;
-	width: 25%;
-	text-align: center;
-	color: red;
-	font-weight: bold;
-	font-size: 200%;
-}
-
-#realtime{
-	height: auto;
-}
-
 .row_chart{
 	height: 400px;
-}
-
-#history {
-	height: 100%;
-	width: 100%;
-	clear: both;
-}
-
-#scroller {
-	height: 100%;
-	width: 100%;
-	float:left;
 }
 
 #sensor1,
 #sensor2,
 #sensor3,
-#sensor4 {
-	height: 50%;
-	width: 50%;
+#sensor4,
+#sensor5{
+	height: 100%;
+	width: 100%;
 	float: left;
-}
-
-#heatMapDiv{
-	height: auto;
-	margin: 0 auto;
 }
 
 iframe{
