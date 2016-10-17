@@ -88,6 +88,7 @@ $(document).ready(function () {
 		});
 
 		$.get('/get_hist_sensor/1', function (s1_hist_data) {
+			console.log('GETTING HIST 1 DATA...');
 			for (var i = 0; i < s1_hist_data.length; i++) {
 				var xtime;
 				var xtemp = parseFloat(s1_hist_data[i].reading);
@@ -337,15 +338,15 @@ $(document).ready(function () {
 		};
 
 		// This function needs to update the current temp variable every interval
-		var updateCurrentTemp = function() {
-			// Go to the route on the server that is designed to return the most recent average
-			$.get('/get_current_avg_temp', function(data) {
-				// Update the HTML element that displays this data, and change its value
-				$('#average').html(data.avg_reading.toFixed(2) + "&deg;C");
-			});
-		};
+		// var updateCurrentTemp = function() {
+		// 	// Go to the route on the server that is designed to return the most recent average
+		// 	$.get('/get_current_avg_temp', function(data) {
+		// 		// Update the HTML element that displays this data, and change its value
+		// 		$('#average').html(data.avg_reading.toFixed(2) + "&deg;C");
+		// 	});
+		// };
 		// generates first set of dataPoints
-		updateChart(dataLength);
+		//updateChart(dataLength);
 
 		// Load Historical Data based on user choice (or default)
 		//history_chart.render();
@@ -355,9 +356,9 @@ $(document).ready(function () {
 		// sensor4_chart.render();
 
 		// update displays after specified time. 
-		setInterval(function(){updateChart(1);}, updateInterval);
-		setInterval(function(){updateCurrentTemp();}, updateInterval);
-		setInterval(function() {document.getElementById('heatMapFrame').contentWindow.location.reload();},updateInterval);
+		//setInterval(function(){updateChart(1);}, updateInterval);
+		//setInterval(function(){updateCurrentTemp();}, updateInterval);
+		//setInterval(function() {document.getElementById('heatMapFrame').contentWindow.location.reload();},updateInterval);
 		//setInterval(function(){updateSensorCharts();}, updateInterval);
 
 	};
