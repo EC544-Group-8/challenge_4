@@ -25,7 +25,7 @@ $(document).ready(function () {
 
         var realtime_data = []; 
 
-        var chart1 = new CanvasJS.Chart("scroller1",{
+        var chart1 = new CanvasJS.Chart("sensor1",{
             title :{
                 text: "Real Time Average Temperature"
             },          
@@ -43,7 +43,7 @@ $(document).ready(function () {
             }]
         });
 
-        var chart2 = new CanvasJS.Chart("scroller2",{
+        var chart2 = new CanvasJS.Chart("sensor2",{
             title :{
                 text: "Real Time Average Temperature"
             },          
@@ -61,7 +61,7 @@ $(document).ready(function () {
             }]
         });
 
-        var chart3 = new CanvasJS.Chart("scroller3",{
+        var chart3 = new CanvasJS.Chart("sensor3",{
             title :{
                 text: "Real Time Average Temperature"
             },          
@@ -79,7 +79,7 @@ $(document).ready(function () {
             }]
         });
 
-        var chart4 = new CanvasJS.Chart("scroller4",{
+        var chart4 = new CanvasJS.Chart("sensor4",{
             title :{
                 text: "Real Time Average Temperature"
             },          
@@ -97,7 +97,7 @@ $(document).ready(function () {
             }]
         });
 
-        var chart5 = new CanvasJS.Chart("scroller5",{
+        var chart5 = new CanvasJS.Chart("sensor5",{
             title :{
                 text: "Real Time Average Temperature"
             },          
@@ -115,6 +115,11 @@ $(document).ready(function () {
             }]
         });
 
+        chart1.render();
+        chart2.render();
+        chart3.render();
+        chart4.render();
+        chart5.render();
 
         // Prepare the historical chart
         var time = new Date(2012,01,1);
@@ -179,10 +184,10 @@ $(document).ready(function () {
         //     });
         // };
         // generates first set of dataPoints...Only runs once then 
-        updateChart(dataLength);
+        //updateChart(dataLength);
 
         // update displays after specified time. 
-        setInterval(function(){updateChart(1);}, updateInterval);
+        //setInterval(function(){updateChart(1);}, updateInterval);
         //setInterval(function(){updateCurrentTemp();}, updateInterval);
         //setInterval(function() {document.getElementById('heatMapFrame').contentWindow.location.reload();},updateInterval);
         //setInterval(function(){updateSensorCharts();}, updateInterval);
