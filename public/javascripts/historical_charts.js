@@ -103,8 +103,8 @@ $(document).ready(function () {
 					y: xtemp
 				});
 			}
-			var minTime = new Date(2016,10,16);
-			var maxTime = new Date(2016,10,17);
+			var minTime = new Date(2015);
+			var maxTime = new Date(2017);
 			var sensor1_chart = new CanvasJS.Chart("sensor1",{
 				title :{
 					text: "Kitchen Temperature"
