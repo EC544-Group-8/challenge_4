@@ -30,62 +30,62 @@ $(document).ready(function () {
 		var sensor3_data = [];
 		var sensor4_data = [];
 
-		var chart = new CanvasJS.Chart("scroller",{
-			title :{
-				text: "Real Time Average Temperature"
-			},			
-			axisX:{
-				title:"Time (s)"
-			},
-			axisY:{
-				title:"Temperature (°C)",
-				maximum: 40,
-				minimum: 0,
-			},
-			data: [{
-				type: "line",
-				dataPoints: realtime_data
-			}]
-		});
+		// var chart = new CanvasJS.Chart("scroller",{
+		// 	title :{
+		// 		text: "Real Time Average Temperature"
+		// 	},			
+		// 	axisX:{
+		// 		title:"Time (s)"
+		// 	},
+		// 	axisY:{
+		// 		title:"Temperature (°C)",
+		// 		maximum: 40,
+		// 		minimum: 0,
+		// 	},
+		// 	data: [{
+		// 		type: "line",
+		// 		dataPoints: realtime_data
+		// 	}]
+		// });
 
-		var history_chart = new CanvasJS.Chart("history",{
-			title :{
-				text: "Historical Average Temperature"
-			},			
-			axisX:{
-				title:"Time (s)"
-			},
-			axisY:{
-				title:"Temperature (°C)",
-				maximum: 30,
-				minimum: 15,
-			},
-			data: [{
-				type: "line",
-				dataPoints: historical_data
-			}]
-		});
+		// var history_chart = new CanvasJS.Chart("history",{
+		// 	title :{
+		// 		text: "Historical Average Temperature"
+		// 	},			
+		// 	axisX:{
+		// 		title:"Time (s)"
+		// 	},
+		// 	axisY:{
+		// 		title:"Temperature (°C)",
+		// 		maximum: 30,
+		// 		minimum: 15,
+		// 	},
+		// 	data: [{
+		// 		type: "line",
+		// 		dataPoints: historical_data
+		// 	}]
+		// });
 
 		// Get current historical temp and time data
-		$.get('/get_hist_avg_temp', function(hist_data) {
-			// Loop through all historic data
-			for (var i = 0; i < hist_data.length; i++) {
-				// Get the temp and the time
-				var xtime;
-				var xtemp = parseFloat(hist_data[i].avg_reading);
-				// Convert the time to the proper format			
-				parse_time(hist_data[i].date_received, function(new_time) {
-					xtime = new_time;
-				});
+		// $.get('/get_hist_avg_temp', function(hist_data) {
+		// 	// Loop through all historic data
+		// 	for (var i = 0; i < hist_data.length; i++) {
+		// 		// Get the temp and the time
+		// 		var xtime;
+		// 		var xtemp = parseFloat(hist_data[i].avg_reading);
+		// 		// Convert the time to the proper format			
+		// 		parse_time(hist_data[i].date_received, function(new_time) {
+		// 			xtime = new_time;
+		// 		});
 
-				// Push it into the historic_data array for the chart
-				historical_data.push({
-					x:  xtime,
-					y:  xtemp
-				});
-			}
-			history_chart.render();
-		});
+		// 		// Push it into the historic_data array for the chart
+		// 		historical_data.push({
+		// 			x:  xtime,
+		// 			y:  xtemp
+		// 		});
+		// 	}
+		// 	history_chart.render();
+		// });
 
 		$.get('/get_hist_sensor/1', function (s1_hist_data) {
 			console.log('GETTING HIST 1 DATA...');
