@@ -45,11 +45,8 @@ app.post('/save_temp', function(req, res){
   var reading = req.body['data'];
   var id = req.body['coreid'];
   var date_published = req.body['published_at'];
-  console.log(id);
-  console.log(reading);
-  console.log(date_published);
+
   Measurement.create(id, reading, function (err, insert_id) {
-    console.log(err);
     console.log('inserted reading as id ' + insert_id);
   });
 });
