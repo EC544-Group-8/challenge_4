@@ -43,42 +43,27 @@ app.post('/save_temp', function(req, res){
   });
 });
 
-// For retreiving the current average temp
-app.get('/get_current_avg_temp', function(req, res){
-  Average.getMostRecent(function(err, avg_temps){
-    if(avg_temps && avg_temps[0]){
-      res.send(avg_temps[0]);
-    }
-  });
-});
-
-// For retreiving the historic average temp
-app.get('/get_hist_avg_temp', function(req, res){
-  Average.getAll(function (err, hist_temps){
-    if(hist_temps){
-      res.send(hist_temps);
-    }
-  });
-});
-
+//----------------------------Historical------------------------------------
 
 // For retreiving the historic average data for each sensor 
 app.get('/get_hist_sensor/1', function(req,res) {
-  Measurement.getAllBySensor(1, function (err, hist_data) {
+  Measurement.getAllBySensor('430034000947353235303037', function (err, hist_data) {
     if(hist_data) {
       res.send(hist_data);
     }
   });
 });
+
 app.get('/get_hist_sensor/2', function(req,res) {
-  Measurement.getAllBySensor(2, function (err, hist_data) {
+  Measurement.getAllBySensor('38003f000b47353235303037', function (err, hist_data) {
     if(hist_data) {
       res.send(hist_data);
     }
   });
 });
+
 app.get('/get_hist_sensor/3', function(req,res) {
-  Measurement.getAllBySensor(3, function (err, hist_data) {
+  Measurement.getAllBySensor('36001f000b47353235303037', function (err, hist_data) {
     if(hist_data) {
       res.send(hist_data);
     }
@@ -86,32 +71,64 @@ app.get('/get_hist_sensor/3', function(req,res) {
 });
 
 app.get('/get_hist_sensor/4', function(req,res) {
-  Measurement.getAllBySensor(4, function (err, hist_data) {
+  Measurement.getAllBySensor('1a0027001447353236343033', function (err, hist_data) {
     if(hist_data) {
       res.send(hist_data);
     }
   });
 });
 
-app.get('/get_most_recent_measurement', function(req,res) {
-  Measurement.getMostRecent(function (err, last_reading) {
+app.get('/get_hist_sensor/5', function(req,res) {
+  Measurement.getAllBySensor('3f0031000947353235303037', function (err, hist_data) {
+    if(hist_data) {
+      res.send(hist_data);
+    }
+  });
+});
+
+//---------------------Real-Time--------------------------
+
+app.get('/get_most_recent_sensor/1', function(req,res) {
+  Measurement.getMostRecentBySensor('430034000947353235303037',function (err, last_reading) {
     if(last_reading && last_reading[0]){
       res.send(last_reading[0]);
     }
   });
 });
 
-// Keeps the heat map up to date with new data from each sensor
-// Most likely can be deleted
-app.get('/get_heat_map/1', function(req,res) {
-  console.log('Grabbing the heat map data');
-  Measurement.getMostRecentBySensor(1, function (err, last_reading) {
+app.get('/get_most_recent_sensor/2', function(req,res) {
+  Measurement.getMostRecentBySensor('38003f000b47353235303037',function (err, last_reading) {
     if(last_reading && last_reading[0]){
       res.send(last_reading[0]);
-      
     }
   });
 });
+
+app.get('/get_most_recent_sensor/3', function(req,res) {
+  Measurement.getMostRecentBySensor('36001f000b47353235303037',function (err, last_reading) {
+    if(last_reading && last_reading[0]){
+      res.send(last_reading[0]);
+    }
+  });
+});
+
+app.get('/get_most_recent_sensor/4', function(req,res) {
+  Measurement.getMostRecentBySensor('1a0027001447353236343033',function (err, last_reading) {
+    if(last_reading && last_reading[0]){
+      res.send(last_reading[0]);
+    }
+  });
+});
+
+app.get('/get_most_recent_sensor/5', function(req,res) {
+  Measurement.getMostRecentBySensor('3f0031000947353235303037',function (err, last_reading) {
+    if(last_reading && last_reading[0]){
+      res.send(last_reading[0]);
+    }
+  });
+});
+
+
 
 // --------- END AJAX POST REQUESTS --------- //
 
@@ -129,43 +146,7 @@ db.connect(db.MODE_PRODUCTION, function(err) {
   }
 });
 
-// ---- BEGIN XBee communication ----- //
-// var Tempcontroller = require('./models/tempcontroller.js');
-// var ping_index = 0;
-// var pings = ['a', 'b', 'c', 'd'];
 
-// // When the controller xBee's serialport is filled, parse the data
-// sp.on("open", function () {
-//   console.log('open');
-//   sp.on('data', function(data) {
-//     console.log('data received: ' + data);
-//     // Parsing
-//     Tempcontroller.parse_data(data);
-//   });
-// });
-
-// building the heat map 
-// var plotly = require('plotly')("delollis", "cj716hsz4v");
-// var heatMapController = require('./models/heatmap.js');
-// setInterval(function(){
-//   heatMapController.updateHeatMap();
-// },120000);
-//=======================================================================
-
-// Every 3 seconds ping one of the arduinos
-// setInterval(function(){
-//   // send command and receive data from arduinos
-//     sp.write(pings[ping_index]);
-//     if(++ping_index > 3) {
-//       ping_index = 0;
-//     }
-// }, 3000);
-
-// Every 2 seconds, and run the print_data
-// setInterval(function(){
-//     Tempcontroller.calc_avg();
-// }, 2000);
-// ---- END XBee communication ----- //
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
