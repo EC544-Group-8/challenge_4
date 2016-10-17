@@ -194,7 +194,7 @@ $(document).ready(function () {
 					text: "Bedroom Temperature"
 				},			
 				axisX:{
-					title:"Time"
+					title:"Time",
 					maximum: maxTime,
 					minimum: minTime,
 				},
@@ -231,7 +231,7 @@ $(document).ready(function () {
 					text: "Office Temperature"
 				},			
 				axisX:{
-					title:"Time"
+					title:"Time",
 					maximum: maxTime,
 					minimum: minTime,
 				},
