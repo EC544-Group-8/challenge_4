@@ -133,7 +133,7 @@ $(document).ready(function () {
         // Prepare the historical chart
         var time = new Date(2012,01,1);
         var temp = -500;    
-        var updateInterval = 5000;
+        var updateInterval = 1000;
         var dataLength = 300; // number of dataPoints visible at any point
 
         var prevTime = 0;
