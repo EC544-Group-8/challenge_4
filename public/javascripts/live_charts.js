@@ -142,11 +142,13 @@ $(document).ready(function () {
             console.log('init num is ' + num);
             for(num; num < 6; num++){ 
                 $.get('/get_most_recent_sensor/' + num.toString(), function(data) {
+                    console.log('l145');
                     temp = parseFloat(data.reading);
                     console.log('the temp is:');
                     console.log(temp);
                     // console.log('DATA: '+data.date_received);
                     parse_time(data.date_received, function(new_time) {
+                        console.log('l51');
                         time = new_time;
                     }); 
                 
@@ -166,6 +168,7 @@ $(document).ready(function () {
                         // Add the new reading to the realtime chart
                         console.log(num);
                         if(num == 1){
+                            console.log('l171');
                             realtime_data1.push({
                                 x: time,
                                 y: temp
@@ -230,10 +233,12 @@ $(document).ready(function () {
                             console.log('wtf is this: ' + num);
                         }
                     }
-
+                    console.log('l236');
                     prevTime = time;
                 })      
+                console.log('l239');
             }   
+            console.log('l241');
         }
         // update displays after specified time. 
         setInterval(function(){updateChart();}, updateInterval);
