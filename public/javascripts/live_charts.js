@@ -138,7 +138,8 @@ $(document).ready(function () {
 
         var prevTime = 0;
         var updateChart = function() {
-            for (var num = 1; num < 6; num++)
+            var num = 1;
+            for (num; num < 6; num++)
             { 
                 $.get('/get_most_recent_sensor/' + num.toString(), function(data) {
                     temp = parseFloat(data.reading);
