@@ -19,6 +19,38 @@ var parse_time = function(time, done) {
 	done(time_date);
 };
 
+$(function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#from" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 3
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+});
+
 $(document).ready(function () {
 
 	window.onload = function () {
@@ -29,6 +61,7 @@ $(document).ready(function () {
 		var sensor2_data = [];
 		var sensor3_data = [];
 		var sensor4_data = [];
+		var sensor5_data = [];
 
 		// var chart = new CanvasJS.Chart("scroller",{
 		// 	title :{
