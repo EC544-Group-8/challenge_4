@@ -140,8 +140,7 @@ $(document).ready(function () {
         var updateChart = function() {
             var num = 1;
             console.log('init num is ' + num);
-            for (num; num < 6; num++)
-            { 
+            for(num; num < 6; num++){ 
                 $.get('/get_most_recent_sensor/' + num.toString(), function(data) {
                     temp = parseFloat(data.reading);
                     console.log('the temp is:');
@@ -231,8 +230,9 @@ $(document).ready(function () {
                             console.log('wtf is this: ' + num);
                         }
                     }
+
                     prevTime = time;
-                });      
+                })      
             }   
         }
         // update displays after specified time. 
