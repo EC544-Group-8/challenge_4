@@ -133,16 +133,15 @@ $(document).ready(function () {
         // Prepare the historical chart
         var time = new Date(2012,01,1);
         var temp = -500;    
-        var updateInterval = 1000;
+        var updateInterval = 20000;
         var dataLength = 300; // number of dataPoints visible at any point
 
         var prevTime = 0;
-        var num = 0;
-
         var updateChart = function() {
+            var num = 1;
             console.log('init num is ' + num);
-            //for(num; num < 6; num++){ 
-                $.get('/get_most_recent_sensor/' + ((num++ % 6)+1).toString(), function(data) {
+            for(num; num < 6; num++){ 
+                $.get('/get_most_recent_sensor/' + num.toString(), function(data) {
                     console.log('l145');
                     temp = parseFloat(data.reading);
                     console.log('the temp is:');
@@ -238,7 +237,7 @@ $(document).ready(function () {
                     prevTime = time;
                 })      
                 console.log('l239');
-            //}   
+            }   
             console.log('l241');
         }
         // update displays after specified time. 
