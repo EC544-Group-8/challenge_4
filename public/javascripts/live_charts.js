@@ -146,120 +146,89 @@ $(document).ready(function () {
                     // console.log('DATA: '+data.date_received);
                     parse_time(data.date_received, function(new_time) {
                         time = new_time;
-                    }); // MIGHT WANT TO PUT THIS AROUND WHOLE CALL 
+                    }); 
                 
                     // var currentTime = new Date();
                     // var offset = new Date().getTimezoneOffset();
                     // currentTime.setHours(currentTime.getHours() + (offset/-60));
                     // console.log("in chart.js current time is:");
-                    //if(time > prevTime){
-                        console.log("Data Recorded Time...");
-                        console.log(time);
-                        console.log('PREV TIME...');
-                        console.log(prevTime);
-                        // Update the charts if there is a new average reading
-                        if (temp > -500){
-                            // Add the new reading to the realtime chart
-                            switch(i){
-                                case 0:
-                                    realtime_data1.push({
-                                        x: time,
-                                        y: temp
-                                    });
-                                    // Scroll Realtime Chart if necessary
-                                    if (realtime_data1.length > dataLength) {
-                                        // pop the oldest reading
-                                        realtime_data1.shift();
-                                    }
-                                    break;
-                                case 1:
-                                    realtime_data2.push({
-                                        x: time,
-                                        y: temp
-                                    });
-                                    // Scroll Realtime Chart if necessary
-                                    if (realtime_data2.length > dataLength) {
-                                        // pop the oldest reading
-                                        realtime_data2.shift();
-                                    }
-                                    break;
-                                case 2:
-                                    realtime_data3.push({
-                                        x: time,
-                                        y: temp
-                                    });
-                                    // Scroll Realtime Chart if necessary
-                                    if (realtime_data3.length > dataLength) {
-                                        // pop the oldest reading
-                                        realtime_data3.shift();
-                                    }
-                                    break;
-                                case 3:
-                                    realtime_data4.push({
-                                        x: time,
-                                        y: temp
-                                    });
-                                    // Scroll Realtime Chart if necessary
-                                    if (realtime_data4.length > dataLength) {
-                                        // pop the oldest reading
-                                        realtime_data4.shift();
-                                    }
-                                    break;
-                                case 4:
-                                    realtime_data5.push({
-                                        x: time,
-                                        y: temp
-                                    });
-                                    // Scroll Realtime Chart if necessary
-                                    if (realtime_data5.length > dataLength) {
-                                        // pop the oldest reading
-                                        realtime_data5.shift();
-                                    }
-                                    break;
-                            }
-                        }
-                        
-                        // Update Chart
-                        switch(i){
-                            case 0:
-                                chart1.render();
-                                break;
-                            case 1:
-                                chart2.render();
-                                break;
-                            case 2:
-                                chart3.render();
-                                break;
-                            case 3:
-                                chart4.render();
-                                break;
-                            case 4:
-                                chart5.render();
-                                break;
-                        }
-                        
-                        //history_chart.render();
-                        prevTime = time;
-                    //}
-                });
-            }
-        };
 
-        // This function needs to update the current temp variable every interval
-        // var updateCurrentTemp = function() {
-        //     // Go to the route on the server that is designed to return the most recent average
-        //     $.get('/get_current_avg_temp', function(data) {
-        //         // Update the HTML element that displays this data, and change its value
-        //         $('#average').html(data.avg_reading.toFixed(2) + "&deg;C");
-        //     });
-        // };
-        // generates first set of dataPoints...Only runs once then 
-        //updateChart(dataLength);
+                    //if(time > prevTime){
+                    console.log("Data Recorded Time...");
+                    console.log(time);
+                    console.log('PREV TIME...');
+                    console.log(prevTime);
+                    // Update the charts if there is a new average reading
+                    if (temp > -500){
+                        // Add the new reading to the realtime chart
+                        if(i ==0){
+                            realtime_data1.push({
+                                x: time,
+                                y: temp
+                            });
+                            // Scroll Realtime Chart if necessary
+                            if (realtime_data1.length > dataLength) {
+                                // pop the oldest reading
+                                realtime_data1.shift();
+                            };
+                            chart1.render();
+                        }
+                        else if(i ==1){
+                            realtime_data2.push({
+                                x: time,
+                                y: temp
+                            });
+                            // Scroll Realtime Chart if necessary
+                            if (realtime_data2.length > dataLength) {
+                                // pop the oldest reading
+                                realtime_data2.shift();
+                            };
+                            chart2.render();
+                        }
+                        else if(i == 2){
+                            realtime_data3.push({
+                                x: time,
+                                y: temp
+                            });
+                            // Scroll Realtime Chart if necessary
+                            if (realtime_data3.length > dataLength) {
+                                // pop the oldest reading
+                                realtime_data3.shift();
+                            };
+                            chart3.render();
+                        }
+                        else if(i == 3){
+                            realtime_data4.push({
+                                x: time,
+                                y: temp
+                            });
+                            // Scroll Realtime Chart if necessary
+                            if (realtime_data4.length > dataLength) {
+                                // pop the oldest reading
+                                realtime_data4.shift();
+                            };
+                            chart4.render();
+                        }
+                        else if(i == 4){
+                            realtime_data5.push({
+                                x: time,
+                                y: temp
+                            });
+                            // Scroll Realtime Chart if necessary
+                            if (realtime_data5.length > dataLength) {
+                                // pop the oldest reading
+                                realtime_data5.shift();
+                            };
+                            chart5.render();
+                        }
+                    }
+                    prevTime = time;
+                });      
+            };   
+        };
 
         // update displays after specified time. 
         setInterval(function(){updateChart(1);}, updateInterval);
-        //setInterval(function(){updateCurrentTemp();}, updateInterval);
-        //setInterval(function() {document.getElementById('heatMapFrame').contentWindow.location.reload();},updateInterval);
         //setInterval(function(){updateSensorCharts();}, updateInterval);
 
     };
