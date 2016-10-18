@@ -35,7 +35,6 @@ var sensor1_chart = new CanvasJS.Chart("sensor1",{
 	},			
 	axisX:{
 		title:"Time",
-
 		maximum: maxTime,
 		minimum: minTime,
 
@@ -46,7 +45,9 @@ var sensor1_chart = new CanvasJS.Chart("sensor1",{
 		minimum: 65,
 	},
 	data: [{
-		type: "line",
+		type: "spline",
+		xValueType: "dateTime",
+		xValueFormatString: "YYYY-MM-DD",
 		dataPoints: sensor1_data 
 	}]
 });
@@ -66,7 +67,7 @@ var sensor2_chart = new CanvasJS.Chart("sensor2",{
 		minimum: 65,
 	},
 	data: [{
-		type: "line",
+		type: "spline",
 		dataPoints: sensor2_data 
 	}]
 });
@@ -86,7 +87,7 @@ var sensor3_chart = new CanvasJS.Chart("sensor3",{
 		minimum: 65,
 	},
 	data: [{
-		type: "line",
+		type: "spline",
 		dataPoints: sensor3_data 
 	}]
 });
@@ -106,7 +107,7 @@ var sensor4_chart = new CanvasJS.Chart("sensor4",{
 		minimum: 65,
 	},
 	data: [{
-		type: "line",
+		type: "spline",
 		dataPoints: sensor4_data 
 	}]
 });
@@ -126,7 +127,7 @@ var sensor5_chart = new CanvasJS.Chart("sensor5",{
 		minimum: 65,
 	},
 	data: [{
-		type: "line",
+		type: "spline",
 		dataPoints: sensor5_data 
 	}]
 });
@@ -243,12 +244,17 @@ $(document).ready(function () {
 			  var year = parseInt(s.substring(0,4));
 			  var month = parseInt(s.substring(5,7)) - 1;
 			  var day = parseInt(s.substring(8,10));
-			  minTime = new Date(year,month,day,0,0,0);
+			  minTime = new Date(year,month,day,1,1,1);
 			  console.log("MinTime: " + minTime);
+			  sensor1_chart.options.axisX.minimum = minTime;
 			  sensor1_chart.render();
+			  sensor2_chart.options.axisX.minimum = minTime;
 			  sensor2_chart.render();
+			  sensor3_chart.options.axisX.minimum = minTime;
 			  sensor3_chart.render();
+			  sensor4_chart.options.axisX.minimum = minTime;
 			  sensor4_chart.render();
+			  sensor5_chart.options.axisX.minimum = minTime;
 			  sensor5_chart.render();
 		}),
 		to = $( "#to" ).datepicker({
@@ -263,12 +269,17 @@ $(document).ready(function () {
 			var year = parseInt(s.substring(0,4));
 			var month = parseInt(s.substring(5,7)) - 1;
 			var day = parseInt(s.substring(8,10));
-			maxTime = new Date(year,month,day,0,0,0);
+			maxTime = new Date(year,month,day,1,1,1);
 			console.log("MaxTime: " + maxTime);
+			sensor1_chart.options.axisX.maximum = maxTime;
 			sensor1_chart.render();
+			sensor2_chart.options.axisX.maximum = maxTime;
 			sensor2_chart.render();
+			sensor3_chart.options.axisX.maximum = maxTime;
 			sensor3_chart.render();
+			sensor4_chart.options.axisX.maximum = maxTime;
 			sensor4_chart.render();
+			sensor5_chart.options.axisX.maximum = maxTime;
 			sensor5_chart.render();
 		});
 		 
