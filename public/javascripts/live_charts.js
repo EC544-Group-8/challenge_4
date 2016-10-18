@@ -6,7 +6,7 @@ var parse_time = function(time, done) {
     var year = parseInt(time.substr(0,4),10);
     var month = parseInt(time.substr(5,2),10)-1; // For the right month
     var day = parseInt(time.substr(8,2),10);
-    var hour = parseInt(time.substr(11,2),10)-4; // For right time zone (sort of)
+    var hour = parseInt(time.substr(11,2),10); // For right time zone (sort of)
     var minute = parseInt(time.substr(14,2),10);
     var second = parseInt(time.substr(17,2),10);
     // console.log("time is: " + time_str);
