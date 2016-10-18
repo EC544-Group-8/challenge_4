@@ -34,10 +34,10 @@ $(document).ready(function () {
                 text: "Real Time Average Temperature"
             },          
             axisX:{
-                title:"Time (s)"
+                title:"Time"
             },
             axisY:{
-                title:"Temperature (°C)",
+                title:"Temperature (°F)",
                 maximum: 90,
                 minimum: 60,
             },
@@ -52,10 +52,10 @@ $(document).ready(function () {
                 text: "Real Time Average Temperature"
             },          
             axisX:{
-                title:"Time (s)"
+                title:"Time"
             },
             axisY:{
-                title:"Temperature (°C)",
+                title:"Temperature (°F)",
                 maximum: 90,
                 minimum: 60,
             },
@@ -70,10 +70,10 @@ $(document).ready(function () {
                 text: "Real Time Average Temperature"
             },          
             axisX:{
-                title:"Time (s)"
+                title:"Time"
             },
             axisY:{
-                title:"Temperature (°C)",
+                title:"Temperature (°F)",
                 maximum: 90,
                 minimum: 60,
             },
@@ -88,10 +88,10 @@ $(document).ready(function () {
                 text: "Real Time Average Temperature"
             },          
             axisX:{
-                title:"Time (s)"
+                title:"Time"
             },
             axisY:{
-                title:"Temperature (°C)",
+                title:"Temperature (°F)",
                 maximum: 90,
                 minimum: 60,
             },
@@ -106,10 +106,10 @@ $(document).ready(function () {
                 text: "Real Time Average Temperature"
             },          
             axisX:{
-                title:"Time (s)"
+                title:"Time"
             },
             axisY:{
-                title:"Temperature (°C)",
+                title:"Temperature (°F)",
                 maximum: 90,
                 minimum: 60,
             },
@@ -124,11 +124,6 @@ $(document).ready(function () {
         chart3.render();
         chart4.render();
         chart5.render();
-
-
-
-
-
 
         // Prepare the historical chart
         var time = new Date(2012,01,1);
@@ -226,6 +221,7 @@ $(document).ready(function () {
                 });      
             }   
         }
+
         // update displays after specified time. 
         setInterval(function(){updateChart(1);}, updateInterval);
         //setInterval(function(){updateSensorCharts();}, updateInterval);
