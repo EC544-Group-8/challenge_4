@@ -164,6 +164,7 @@ $(document).ready(function () {
                     if (temp > -500){
                         console.log('1');
                         // Add the new reading to the realtime chart
+                        console.log(i);
                         //if(i ==0){
                             realtime_data1.push({
                                 x: time,
