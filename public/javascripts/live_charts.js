@@ -38,8 +38,8 @@ $(document).ready(function () {
             },
             axisY:{
                 title:"Temperature (°C)",
-                maximum: 40,
-                minimum: 0,
+                maximum: 90,
+                minimum: 60,
             },
             data: [{
                 type: "line",
@@ -56,8 +56,8 @@ $(document).ready(function () {
             },
             axisY:{
                 title:"Temperature (°C)",
-                maximum: 40,
-                minimum: 0,
+                maximum: 90,
+                minimum: 60,
             },
             data: [{
                 type: "line",
@@ -74,8 +74,8 @@ $(document).ready(function () {
             },
             axisY:{
                 title:"Temperature (°C)",
-                maximum: 40,
-                minimum: 0,
+                maximum: 90,
+                minimum: 60,
             },
             data: [{
                 type: "line",
@@ -92,8 +92,8 @@ $(document).ready(function () {
             },
             axisY:{
                 title:"Temperature (°C)",
-                maximum: 40,
-                minimum: 0,
+                maximum: 90,
+                minimum: 60,
             },
             data: [{
                 type: "line",
@@ -110,8 +110,8 @@ $(document).ready(function () {
             },
             axisY:{
                 title:"Temperature (°C)",
-                maximum: 40,
-                minimum: 0,
+                maximum: 90,
+                minimum: 60,
             },
             data: [{
                 type: "line",
