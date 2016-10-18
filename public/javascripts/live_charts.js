@@ -139,7 +139,7 @@ $(document).ready(function () {
         var prevTime = 0;
         var updateChart = function () {
             // Get current avg temp and time
-            for(for i = 0; i < 5; i++){ 
+            for(i = 0; i < 5; i++){ 
                 $.get('/get_most_recent_sensor/' + i.toString(), function(data) {
                     temp = parseFloat(data.avg_reading);
                     // console.log('DATA: '+data.date_received);
