@@ -23,17 +23,116 @@ var minTime = new Date(2016,09,16,22,1,1,1);
 var maxTime = new Date(2016,09,17,22,1,1,1);
 
 
+var sensor1_data = [];
+var sensor2_data = [];
+var sensor3_data = [];
+var sensor4_data = [];
+var sensor5_data = [];
+
+var sensor1_chart = new CanvasJS.Chart("sensor1",{
+	title :{
+		text: "Kitchen Temperature"
+	},			
+	axisX:{
+		title:"Time",
+
+		maximum: maxTime,
+		minimum: minTime,
+
+	},
+	axisY:{
+		title:"Temperature (°F)",
+		maximum: 85,
+		minimum: 65,
+	},
+	data: [{
+		type: "line",
+		dataPoints: sensor1_data 
+	}]
+});
+
+var sensor2_chart = new CanvasJS.Chart("sensor2",{
+	title :{
+		text: "Living Room Temperature"
+	},			
+	axisX:{
+		title:"Time",
+		maximum: maxTime,
+		minimum: minTime
+	},
+	axisY:{
+		title:"Temperature (°F)",
+		maximum: 85,
+		minimum: 65,
+	},
+	data: [{
+		type: "line",
+		dataPoints: sensor2_data 
+	}]
+});
+
+var sensor3_chart = new CanvasJS.Chart("sensor3",{
+	title :{
+		text: "Bedroom Temperature"
+	},			
+	axisX:{
+		title:"Time",
+		maximum: maxTime,
+		minimum: minTime,
+	},
+	axisY:{
+		title:"Temperature (°F)",
+		maximum: 85,
+		minimum: 65,
+	},
+	data: [{
+		type: "line",
+		dataPoints: sensor3_data 
+	}]
+});
+
+var sensor4_chart = new CanvasJS.Chart("sensor4",{
+	title :{
+		text: "Office Temperature"
+	},			
+	axisX:{
+		title:"Time",
+		maximum: maxTime,
+		minimum: minTime,
+	},
+	axisY:{
+		title:"Temperature (°F)",
+		maximum: 85,
+		minimum: 65,
+	},
+	data: [{
+		type: "line",
+		dataPoints: sensor4_data 
+	}]
+});
+
+var sensor5_chart = new CanvasJS.Chart("sensor5",{
+	title :{
+		text: "Sensor 5"
+	},			
+	axisX:{
+		title:"Time",
+		maximum: maxTime,
+		minimum: minTime,
+	},
+	axisY:{
+		title:"Temperature (°F)",
+		maximum: 85,
+		minimum: 65,
+	},
+	data: [{
+		type: "line",
+		dataPoints: sensor5_data 
+	}]
+});
+
 $(document).ready(function () {
-
 	window.onload = function () {
-
-		var sensor1_data = [];
-		var sensor2_data = [];
-		var sensor3_data = [];
-		var sensor4_data = [];
-		var sensor5_data = [];
-
-		
 		$.get('/get_hist_sensor/1', function (s1_hist_data) {
 			console.log('GETTING HIST 1 DATA...');
 			for (var i = 0; i < s1_hist_data.length; i++) {
@@ -51,27 +150,6 @@ $(document).ready(function () {
 				});
 			}
 
-		var sensor1_chart = new CanvasJS.Chart("sensor1",{
-				title :{
-					text: "Kitchen Temperature"
-				},			
-				axisX:{
-					title:"Time",
-
-					maximum: maxTime,
-					minimum: minTime,
-
-				},
-				axisY:{
-					title:"Temperature (°F)",
-					maximum: 85,
-					minimum: 65,
-				},
-				data: [{
-					type: "line",
-					dataPoints: sensor1_data 
-				}]
-			});
 			sensor1_chart.render();
 		});
 
@@ -92,25 +170,6 @@ $(document).ready(function () {
 				});
 			}
 
-			var sensor2_chart = new CanvasJS.Chart("sensor2",{
-				title :{
-					text: "Living Room Temperature"
-				},			
-				axisX:{
-					title:"Time",
-					maximum: maxTime,
-					minimum: minTime
-				},
-				axisY:{
-					title:"Temperature (°F)",
-					maximum: 85,
-					minimum: 65,
-				},
-				data: [{
-					type: "line",
-					dataPoints: sensor2_data 
-				}]
-			});
 			sensor2_chart.render();
 		});
 
@@ -130,25 +189,6 @@ $(document).ready(function () {
 					y: xtemp
 				});
 			}
-			var sensor3_chart = new CanvasJS.Chart("sensor3",{
-				title :{
-					text: "Bedroom Temperature"
-				},			
-				axisX:{
-					title:"Time",
-					maximum: maxTime,
-					minimum: minTime,
-				},
-				axisY:{
-					title:"Temperature (°F)",
-					maximum: 85,
-					minimum: 65,
-				},
-				data: [{
-					type: "line",
-					dataPoints: sensor3_data 
-				}]
-			});
 			sensor3_chart.render();
 		});
 
@@ -167,25 +207,6 @@ $(document).ready(function () {
 					y: xtemp
 				});
 			}
-			var sensor4_chart = new CanvasJS.Chart("sensor4",{
-				title :{
-					text: "Office Temperature"
-				},			
-				axisX:{
-					title:"Time",
-					maximum: maxTime,
-					minimum: minTime,
-				},
-				axisY:{
-					title:"Temperature (°F)",
-					maximum: 85,
-					minimum: 65,
-				},
-				data: [{
-					type: "line",
-					dataPoints: sensor4_data 
-				}]
-			});
 			sensor4_chart.render();
 		});
 
@@ -204,69 +225,62 @@ $(document).ready(function () {
 					y: xtemp
 				});
 			}
-			var sensor5_chart = new CanvasJS.Chart("sensor5",{
-				title :{
-					text: "Sensor 5"
-				},			
-				axisX:{
-					title:"Time",
-					maximum: maxTime,
-					minimum: minTime,
-				},
-				axisY:{
-					title:"Temperature (°F)",
-					maximum: 85,
-					minimum: 65,
-				},
-				data: [{
-					type: "line",
-					dataPoints: sensor5_data 
-				}]
-			});
 			sensor5_chart.render();
 		});
-		$(function() {
-			var dateFormat = "mm/dd/yy",
-			  from = $( "#from" )
-				.datepicker({
-				  defaultDate: "+1w",
-				  changeMonth: true,
-				  numberOfMonths: 1
-				})
-			   from.on( "change", function() {
-				  to.datepicker( "option", "minDate", getDate( this ) );
-				  minTime = from.val();
-				  sensor1_chart.render();
-				  sensor2_chart.render();
-				  sensor3_chart.render();
-				  sensor4_chart.render();
-				  sensor5_chart.render();
-				}),
-			  to = $( "#to" ).datepicker({
-				defaultDate: "+1w",
-				changeMonth: true,
-				numberOfMonths: 1
-			  })
-			  to.on( "change", function() {
-				from.datepicker( "option", "maxDate", getDate( this ) );
-					maxTime = to.val();
-					sensor1_chart.render();
-					sensor2_chart.render();
-					sensor3_chart.render();
-					sensor4_chart.render();
-					sensor5_chart.render();
-			  });
-		 
-			function getDate( element ) {
-			  var date;
-			  try {
-				date = $.datepicker.parseDate( dateFormat, element.value );
-			  } catch( error ) {
-				date = null;
-			  }
-		 
-			  return date;
-			}
+
+		var dateFormat = "yy-mm-dd",
+		  from = $( "#from" )
+			.datepicker({
+			  defaultDate: "+1w",
+			  changeMonth: true,
+			  numberOfMonths: 1,
+		      dateFormat: "yy-mm-dd"
+			})
+
+		from.on( "change", function() {
+			  to.datepicker( "option", "minDate", getDate( this ) );
+			  s = from.val();
+			  var year = parseInt(s.substring(0,4));
+			  var month = parseInt(s.substring(5,7)) - 1;
+			  var day = parseInt(s.substring(8,10));
+			  minTime = new Date(year,month,day,0,0,0);
+			  console.log("MinTime: " + minTime);
+			  sensor1_chart.render();
+			  sensor2_chart.render();
+			  sensor3_chart.render();
+			  sensor4_chart.render();
+			  sensor5_chart.render();
+		}),
+		to = $( "#to" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 1,
+			dateFormat: "yy-mm-dd"
+		})
+		to.on( "change", function() {
+			from.datepicker( "option", "maxDate", getDate( this ) );
+			s = to.val();
+			var year = parseInt(s.substring(0,4));
+			var month = parseInt(s.substring(5,7)) - 1;
+			var day = parseInt(s.substring(8,10));
+			maxTime = new Date(year,month,day,0,0,0);
+			console.log("MaxTime: " + maxTime);
+			sensor1_chart.render();
+			sensor2_chart.render();
+			sensor3_chart.render();
+			sensor4_chart.render();
+			sensor5_chart.render();
 		});
+		 
+		function getDate( element ) {
+		  var date;
+		  try {
+			date = $.datepicker.parseDate( dateFormat, element.value );
+		  } catch( error ) {
+			date = null;
+		  }
+	 
+		  return date;
+		}
 	}
 });
