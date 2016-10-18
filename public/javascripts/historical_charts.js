@@ -19,34 +19,29 @@ var parse_time = function(time, done) {
 	done(time_date);
 };
 
+var minTime = new Date(2016,09,16,22,1,1,1);
+var maxTime = new Date(2016,09,17,22,1,1,1);
+
 $(function() {
     var dateFormat = "mm/dd/yy",
       from = $( "#from" )
         .datepicker({
           defaultDate: "+1w",
           changeMonth: true,
-          numberOfMonths: 3
+          numberOfMonths: 1
         })
-        .on( "change", function() {
-          to.datepicker( "option", "minTime", getDate( this ) );
-			sensor1_chart.render();
-			sensor2_chart.render();
-			sensor3_chart.render();
-			sensor4_chart.render();
-			sensor5_chart.render();
+       from.on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+		  minTime = from.val();
         }),
       to = $( "#to" ).datepicker({
         defaultDate: "+1w",
         changeMonth: true,
-        numberOfMonths: 3
+        numberOfMonths: 1
       })
-      .on( "change", function() {
-        from.datepicker( "option", "maxTime", getDate( this ) );
-			sensor1_chart.render();
-			sensor2_chart.render();
-			sensor3_chart.render();
-			sensor4_chart.render();
-			sensor5_chart.render();
+      to.on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+			maxTime = to.val();
       });
  
     function getDate( element ) {
@@ -71,8 +66,6 @@ $(document).ready(function () {
 		var sensor4_data = [];
 		var sensor5_data = [];
 
-		var minTime = new Date(2016,09,16,22,1,1,1);
-		var maxTime = new Date(2016,09,17,22,1,1,1);
 		
 		$.get('/get_hist_sensor/1', function (s1_hist_data) {
 			console.log('GETTING HIST 1 DATA...');
@@ -91,7 +84,7 @@ $(document).ready(function () {
 				});
 			}
 
-			var sensor1_chart = new CanvasJS.Chart("sensor1",{
+		var sensor1_chart = new CanvasJS.Chart("sensor1",{
 				title :{
 					text: "Kitchen Temperature"
 				},			
