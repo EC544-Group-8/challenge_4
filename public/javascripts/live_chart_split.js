@@ -31,7 +31,7 @@ $(document).ready(function () {
 
         var chart1 = new CanvasJS.Chart("sensor1",{
             title :{
-                text: "Real Time Average Temperature"
+                text: "Real Time Kitchen Temperature"
             },          
             axisX:{
                 title:"Time"
@@ -49,7 +49,7 @@ $(document).ready(function () {
 
         var chart2 = new CanvasJS.Chart("sensor2",{
             title :{
-                text: "Real Time Average Temperature"
+                text: "Real Time Living Room Temperature"
             },          
             axisX:{
                 title:"Time"
@@ -67,7 +67,7 @@ $(document).ready(function () {
 
         var chart3 = new CanvasJS.Chart("sensor3",{
             title :{
-                text: "Real Time Average Temperature"
+                text: "Real Time Bedroom Temperature"
             },          
             axisX:{
                 title:"Time"
@@ -85,7 +85,7 @@ $(document).ready(function () {
 
         var chart4 = new CanvasJS.Chart("sensor4",{
             title :{
-                text: "Real Time Average Temperature"
+                text: "Real Time Office Temperature"
             },          
             axisX:{
                 title:"Time"
