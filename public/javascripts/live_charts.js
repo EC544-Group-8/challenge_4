@@ -152,10 +152,10 @@ $(document).ready(function () {
                     // var offset = new Date().getTimezoneOffset();
                     // currentTime.setHours(currentTime.getHours() + (offset/-60));
                     // console.log("in chart.js current time is:");
-                    console.log(time);
                     if(time > prevTime){
-                        console.log("Time within conditional")
+                        console.log("Data Recorded Time...");
                         console.log(time);
+                        console.log('PREV TIME...');
                         console.log(prevTime);
                         // Update the charts if there is a new average reading
                         if (temp > -500){
