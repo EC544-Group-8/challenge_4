@@ -133,14 +133,15 @@ $(document).ready(function () {
         // Prepare the historical chart
         var time = new Date(2012,01,1);
         var temp = -500;    
-        var updateInterval = 2000;
+        var updateInterval = 5000;
         var dataLength = 300; // number of dataPoints visible at any point
 
         var prevTime = 0;
         var updateChart = function () {
             // Get current avg temp and time
             for(i = 0; i < 5; i++){ 
-                $.get('/get_most_recent_sensor/' + i.toString(), function(data) {
+                var num = i + 1;
+                $.get('/get_most_recent_sensor/' + num.toString(), function(data) {
                     temp = parseFloat(data.avg_reading);
                     // console.log('DATA: '+data.date_received);
                     parse_time(data.date_received, function(new_time) {
