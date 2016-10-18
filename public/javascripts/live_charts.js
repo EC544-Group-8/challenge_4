@@ -137,9 +137,9 @@ $(document).ready(function () {
         var dataLength = 300; // number of dataPoints visible at any point
 
         var prevTime = 0;
-        var updateChart = function () {
-            // Get current avg temp and time
-            for(i = 0; i < 5; i++){ 
+        var updateChart = function() {
+            for (var i = 0; i < 5; i++)
+            { 
                 var num = i + 1;
                 $.get('/get_most_recent_sensor/' + num.toString(), function(data) {
                     temp = parseFloat(data.avg_reading);
@@ -224,12 +224,10 @@ $(document).ready(function () {
                     }
                     prevTime = time;
                 });      
-            };   
-        };
-
+            }   
+        }
         // update displays after specified time. 
         setInterval(function(){updateChart(1);}, updateInterval);
         //setInterval(function(){updateSensorCharts();}, updateInterval);
-
     };
 });
