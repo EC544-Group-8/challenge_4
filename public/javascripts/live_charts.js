@@ -142,7 +142,7 @@ $(document).ready(function () {
             { 
                 var num = i + 1;
                 $.get('/get_most_recent_sensor/' + num.toString(), function(data) {
-                    temp = parseFloat(data.avg_reading);
+                    temp = parseFloat(data);
                     console.log('the temp is:');
                     console.log(temp);
                     // console.log('DATA: '+data.date_received);
