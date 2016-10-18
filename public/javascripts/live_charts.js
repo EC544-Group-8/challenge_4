@@ -139,6 +139,7 @@ $(document).ready(function () {
         var prevTime = 0;
         var updateChart = function() {
             var num = 1;
+            console.log('init num is ' + num);
             for (num; num < 6; num++)
             { 
                 $.get('/get_most_recent_sensor/' + num.toString(), function(data) {
@@ -235,7 +236,7 @@ $(document).ready(function () {
             }   
         }
         // update displays after specified time. 
-        setInterval(function(){updateChart(1);}, updateInterval);
+        setInterval(function(){updateChart();}, updateInterval);
         //setInterval(function(){updateSensorCharts();}, updateInterval);
     };
 });
