@@ -22,39 +22,6 @@ var parse_time = function(time, done) {
 var minTime = new Date(2016,09,16,22,1,1,1);
 var maxTime = new Date(2016,09,17,22,1,1,1);
 
-$(function() {
-    var dateFormat = "mm/dd/yy",
-      from = $( "#from" )
-        .datepicker({
-          defaultDate: "+1w",
-          changeMonth: true,
-          numberOfMonths: 1
-        })
-       from.on( "change", function() {
-          to.datepicker( "option", "minDate", getDate( this ) );
-		  minTime = from.val();
-        }),
-      to = $( "#to" ).datepicker({
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 1
-      })
-      to.on( "change", function() {
-        from.datepicker( "option", "maxDate", getDate( this ) );
-			maxTime = to.val();
-      });
- 
-    function getDate( element ) {
-      var date;
-      try {
-        date = $.datepicker.parseDate( dateFormat, element.value );
-      } catch( error ) {
-        date = null;
-      }
- 
-      return date;
-    }
-});
 
 $(document).ready(function () {
 
@@ -257,6 +224,49 @@ $(document).ready(function () {
 				}]
 			});
 			sensor5_chart.render();
+		});
+		$(function() {
+			var dateFormat = "mm/dd/yy",
+			  from = $( "#from" )
+				.datepicker({
+				  defaultDate: "+1w",
+				  changeMonth: true,
+				  numberOfMonths: 1
+				})
+			   from.on( "change", function() {
+				  to.datepicker( "option", "minDate", getDate( this ) );
+				  minTime = from.val();
+				  sensor1_chart.render();
+				  sensor2_chart.render();
+				  sensor3_chart.render();
+				  sensor4_chart.render();
+				  sensor5_chart.render();
+				}),
+			  to = $( "#to" ).datepicker({
+				defaultDate: "+1w",
+				changeMonth: true,
+				numberOfMonths: 1
+			  })
+			  to.on( "change", function() {
+				from.datepicker( "option", "maxDate", getDate( this ) );
+					maxTime = to.val();
+					sensor1_chart.render();
+					sensor2_chart.render();
+					sensor3_chart.render();
+					sensor4_chart.render();
+					sensor5_chart.render();
+			  });
+		 
+			function getDate( element ) {
+			  var date;
+			  try {
+				date = $.datepicker.parseDate( dateFormat, element.value );
+			  } catch( error ) {
+				date = null;
+			  }
+		 
+			  return date;
+			}
 		});
 	}
 });
