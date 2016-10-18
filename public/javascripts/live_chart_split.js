@@ -125,11 +125,6 @@ $(document).ready(function () {
         chart4.render();
         chart5.render();
 
-
-
-
-
-
         // Prepare the historical chart
         var time = new Date(2012,01,1);
         var temp = -500;    
@@ -168,8 +163,136 @@ $(document).ready(function () {
                 chart1.render();
             });      
         };
+        var updateChart2 = function() {      
+            $.get('/get_most_recent_sensor/2', function(data) {
+                temp = parseFloat(data.reading);
+                console.log('the temp is:');
+                console.log(temp);
+                parse_time(data.date_received, function(new_time) {
+                    time = new_time;
+                }); 
+                console.log("Data Recorded Time...");
+                console.log(time);
+                console.log('PREV TIME...');
+                console.log(prevTime);
+                // Update the charts if there is a new average reading
+                if (temp > -500){
+                    // Add the new reading to the realtime chart
+                        realtime_data2.push({
+                            x: time,
+                            y: temp
+                        });
+                        // Scroll Realtime Chart if necessary
+                        if (realtime_data2.length > dataLength) {
+                            // pop the oldest reading
+                            realtime_data2.shift();
+                        };
+                        console.log('ABOUT to render chart ');
+                        
+                }
+                prevTime = time;
+                chart2.render();
+            });      
+        };
+        var updateChart3 = function() {      
+            $.get('/get_most_recent_sensor/3', function(data) {
+                temp = parseFloat(data.reading);
+                console.log('the temp is:');
+                console.log(temp);
+                parse_time(data.date_received, function(new_time) {
+                    time = new_time;
+                }); 
+                console.log("Data Recorded Time...");
+                console.log(time);
+                console.log('PREV TIME...');
+                console.log(prevTime);
+                // Update the charts if there is a new average reading
+                if (temp > -500){
+                    // Add the new reading to the realtime chart
+                        realtime_data3.push({
+                            x: time,
+                            y: temp
+                        });
+                        // Scroll Realtime Chart if necessary
+                        if (realtime_data3.length > dataLength) {
+                            // pop the oldest reading
+                            realtime_data3.shift();
+                        };
+                        console.log('ABOUT to render chart ');
+                        
+                }
+                prevTime = time;
+                chart3.render();
+            });      
+        };
+        var updateChart4 = function() {      
+            $.get('/get_most_recent_sensor/4', function(data) {
+                temp = parseFloat(data.reading);
+                console.log('the temp is:');
+                console.log(temp);
+                parse_time(data.date_received, function(new_time) {
+                    time = new_time;
+                }); 
+                console.log("Data Recorded Time...");
+                console.log(time);
+                console.log('PREV TIME...');
+                console.log(prevTime);
+                // Update the charts if there is a new average reading
+                if (temp > -500){
+                    // Add the new reading to the realtime chart
+                        realtime_data4.push({
+                            x: time,
+                            y: temp
+                        });
+                        // Scroll Realtime Chart if necessary
+                        if (realtime_data4.length > dataLength) {
+                            // pop the oldest reading
+                            realtime_data4.shift();
+                        };
+                        console.log('ABOUT to render chart ');
+                        
+                }
+                prevTime = time;
+                chart4.render();
+            });      
+        };
+        var updateChart5 = function() {      
+            $.get('/get_most_recent_sensor/5', function(data) {
+                temp = parseFloat(data.reading);
+                console.log('the temp is:');
+                console.log(temp);
+                parse_time(data.date_received, function(new_time) {
+                    time = new_time;
+                }); 
+                console.log("Data Recorded Time...");
+                console.log(time);
+                console.log('PREV TIME...');
+                console.log(prevTime);
+                // Update the charts if there is a new average reading
+                if (temp > -500){
+                    // Add the new reading to the realtime chart
+                        realtime_data5.push({
+                            x: time,
+                            y: temp
+                        });
+                        // Scroll Realtime Chart if necessary
+                        if (realtime_data5.length > dataLength) {
+                            // pop the oldest reading
+                            realtime_data5.shift();
+                        };
+                        console.log('ABOUT to render chart ');
+                        
+                }
+                prevTime = time;
+                chart5.render();
+            });      
+        };
         // update displays after specified time. 
         setInterval(function(){updateChart1();}, updateInterval);
+        setInterval(function(){updateChart2();}, updateInterval);
+        setInterval(function(){updateChart3();}, updateInterval);
+        setInterval(function(){updateChart4();}, updateInterval);
+        setInterval(function(){updateChart5();}, updateInterval);
         //setInterval(function(){updateSensorCharts();}, updateInterval);
     };
 });
