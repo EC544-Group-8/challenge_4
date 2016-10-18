@@ -146,13 +146,13 @@ $(document).ready(function () {
                     // console.log('DATA: '+data.date_received);
                     parse_time(data.date_received, function(new_time) {
                         time = new_time;
-                    });
+                    }); // MIGHT WANT TO PUT THIS AROUND WHOLE CALL 
                 
                     // var currentTime = new Date();
                     // var offset = new Date().getTimezoneOffset();
                     // currentTime.setHours(currentTime.getHours() + (offset/-60));
                     // console.log("in chart.js current time is:");
-                    if(time > prevTime){
+                    //if(time > prevTime){
                         console.log("Data Recorded Time...");
                         console.log(time);
                         console.log('PREV TIME...');
@@ -240,7 +240,7 @@ $(document).ready(function () {
                         
                         //history_chart.render();
                         prevTime = time;
-                    }
+                    //}
                 });
             }
         };
