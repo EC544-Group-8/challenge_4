@@ -291,7 +291,7 @@ $(document).ready(function () {
         setInterval(function(){updateChart1();}, 2000);
         setInterval(function(){updateChart2();}, 4000);
         setInterval(function(){updateChart3();}, 6000);
-        setInterval(function(){updateChart4();}, 7000);
+        setInterval(function(){updateChart4();}, 8000);
         setInterval(function(){updateChart5();}, 10000);
         //setInterval(function(){updateSensorCharts();}, updateInterval);
     };
