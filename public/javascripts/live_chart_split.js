@@ -288,11 +288,11 @@ $(document).ready(function () {
             });      
         };
         // update displays after specified time. 
-        setInterval(function(){updateChart1();}, updateInterval);
-        setInterval(function(){updateChart2();}, updateInterval);
-        setInterval(function(){updateChart3();}, updateInterval);
-        setInterval(function(){updateChart4();}, updateInterval);
-        setInterval(function(){updateChart5();}, updateInterval);
+        setInterval(function(){updateChart1();}, 2000);
+        setInterval(function(){updateChart2();}, 3000);
+        setInterval(function(){updateChart3();}, 4000);
+        setInterval(function(){updateChart4();}, 5000);
+        setInterval(function(){updateChart5();}, 6000);
         //setInterval(function(){updateSensorCharts();}, updateInterval);
     };
 });
