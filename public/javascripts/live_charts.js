@@ -138,9 +138,8 @@ $(document).ready(function () {
 
         var prevTime = 0;
         var updateChart = function() {
-            for (var i = 0; i < 5; i++)
+            for (var num = 1; num < 6; num++)
             { 
-                var num = i + 1;
                 $.get('/get_most_recent_sensor/' + num.toString(), function(data) {
                     temp = parseFloat(data.reading);
                     console.log('the temp is:');
@@ -165,7 +164,7 @@ $(document).ready(function () {
                         console.log('1');
                         // Add the new reading to the realtime chart
                         console.log(i);
-                        //if(i ==0){
+                        if(num == 1){
                             realtime_data1.push({
                                 x: time,
                                 y: temp
@@ -177,8 +176,8 @@ $(document).ready(function () {
                             };
                             console.log('ABOUT to render chart ');
                             chart1.render();
-                        //}
-                        /*else*/ if(i ==1){
+                        }
+                        else if(num == 2){
                             realtime_data2.push({
                                 x: time,
                                 y: temp
@@ -190,7 +189,7 @@ $(document).ready(function () {
                             };
                             chart2.render();
                         }
-                        else if(i == 2){
+                        else if(num === 3){
                             realtime_data3.push({
                                 x: time,
                                 y: temp
@@ -202,7 +201,7 @@ $(document).ready(function () {
                             };
                             chart3.render();
                         }
-                        else if(i == 3){
+                        else if(num == 4.0){
                             realtime_data4.push({
                                 x: time,
                                 y: temp
@@ -214,7 +213,7 @@ $(document).ready(function () {
                             };
                             chart4.render();
                         }
-                        else if(i == 4){
+                        else if(num == '5'){
                             realtime_data5.push({
                                 x: time,
                                 y: temp
@@ -225,6 +224,9 @@ $(document).ready(function () {
                                 realtime_data5.shift();
                             };
                             chart5.render();
+                        }
+                        else{
+                            console.log('wtf is this: ' + i);
                         }
                     }
                     prevTime = time;
