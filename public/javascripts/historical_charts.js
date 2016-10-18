@@ -255,7 +255,7 @@ $(document).ready(function () {
 				},
 				axisY:{
 					title:"Temperature (°F)",
-			C		maximum: 85,
+					maximum: 85,
 					minimum: 65,
 				},
 				data: [{
