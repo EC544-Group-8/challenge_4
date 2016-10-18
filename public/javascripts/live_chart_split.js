@@ -162,9 +162,10 @@ $(document).ready(function () {
                             realtime_data1.shift();
                         };
                         console.log('ABOUT to render chart ');
-                        chart1.render();
+                        
                 }
                 prevTime = time;
+                chart1.render();
             });      
         };
         // update displays after specified time. 
