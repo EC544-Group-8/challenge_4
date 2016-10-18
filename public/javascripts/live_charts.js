@@ -162,8 +162,9 @@ $(document).ready(function () {
                     console.log(prevTime);
                     // Update the charts if there is a new average reading
                     if (temp > -500){
+                        console.log('1');
                         // Add the new reading to the realtime chart
-                        if(i ==0){
+                        //if(i ==0){
                             realtime_data1.push({
                                 x: time,
                                 y: temp
@@ -175,7 +176,7 @@ $(document).ready(function () {
                             };
                             console.log('ABOUT to render chart ');
                             chart1.render();
-                        }
+                        //}
                         else if(i ==1){
                             realtime_data2.push({
                                 x: time,
