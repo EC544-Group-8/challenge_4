@@ -177,7 +177,7 @@ $(document).ready(function () {
                             console.log('ABOUT to render chart ');
                             chart1.render();
                         //}
-                        else if(i ==1){
+                        /*else*/ if(i ==1){
                             realtime_data2.push({
                                 x: time,
                                 y: temp
