@@ -138,7 +138,7 @@ $(document).ready(function () {
 
         var prevTime = 0;
         var updateChart1 = function() {      
-            $.get('/get_most_recent_sensor/' + num.toString(), function(data) {
+            $.get('/get_most_recent_sensor/1', function(data) {
                 temp = parseFloat(data.reading);
                 console.log('the temp is:');
                 console.log(temp);
