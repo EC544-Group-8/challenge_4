@@ -94,6 +94,7 @@ app.get('/get_hist_sensor/5', function(req,res) {
 app.get('/get_most_recent_sensor/1', function(req,res) {
   Measurement.getMostRecentBySensor('430034000947353235303037',function (err, last_reading) {
     if(last_reading && last_reading[0]){
+      console.log('MADE IT INSIDE QUERY DB');
       res.send(last_reading[0]);
     }
   });
