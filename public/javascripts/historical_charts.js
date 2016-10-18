@@ -29,6 +29,11 @@ $(function() {
         })
         .on( "change", function() {
           to.datepicker( "option", "minTime", getDate( this ) );
+			sensor1_chart.render();
+			sensor2_chart.render();
+			sensor3_chart.render();
+			sensor4_chart.render();
+			sensor5_chart.render();
         }),
       to = $( "#to" ).datepicker({
         defaultDate: "+1w",
@@ -37,6 +42,11 @@ $(function() {
       })
       .on( "change", function() {
         from.datepicker( "option", "maxTime", getDate( this ) );
+			sensor1_chart.render();
+			sensor2_chart.render();
+			sensor3_chart.render();
+			sensor4_chart.render();
+			sensor5_chart.render();
       });
  
     function getDate( element ) {
@@ -93,7 +103,7 @@ $(document).ready(function () {
 
 				},
 				axisY:{
-					title:"Temperature (°C)",
+					title:"Temperature (°F)",
 					maximum: 85,
 					minimum: 65,
 				},
@@ -132,7 +142,7 @@ $(document).ready(function () {
 					minimum: minTime
 				},
 				axisY:{
-					title:"Temperature (°C)",
+					title:"Temperature (°F)",
 					maximum: 85,
 					minimum: 65,
 				},
@@ -170,7 +180,7 @@ $(document).ready(function () {
 					minimum: minTime,
 				},
 				axisY:{
-					title:"Temperature (°C)",
+					title:"Temperature (°F)",
 					maximum: 85,
 					minimum: 65,
 				},
@@ -207,7 +217,7 @@ $(document).ready(function () {
 					minimum: minTime,
 				},
 				axisY:{
-					title:"Temperature (°C)",
+					title:"Temperature (°F)",
 					maximum: 85,
 					minimum: 65,
 				},
@@ -234,9 +244,9 @@ $(document).ready(function () {
 					y: xtemp
 				});
 			}
-			var sensor5_chart = new CanvasJS.Chart("sensor4",{
+			var sensor5_chart = new CanvasJS.Chart("sensor5",{
 				title :{
-					text: "Office Temperature"
+					text: "Sensor 5"
 				},			
 				axisX:{
 					title:"Time",
@@ -244,8 +254,8 @@ $(document).ready(function () {
 					minimum: minTime,
 				},
 				axisY:{
-					title:"Temperature (°C)",
-					maximum: 85,
+					title:"Temperature (°F)",
+			C		maximum: 85,
 					minimum: 65,
 				},
 				data: [{
