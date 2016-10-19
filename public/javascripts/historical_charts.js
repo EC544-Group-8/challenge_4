@@ -31,12 +31,15 @@ var sensor5_data = [];
 
 var sensor1_chart = new CanvasJS.Chart("sensor1",{
 	title :{
-		text: "Kitchen Temperature"
+		text: "Cranky Dentist"
 	},			
 	axisX:{
 		title:"Time",
 		maximum: maxTime,
 		minimum: minTime,
+		labelFormatter: function (e) {
+			return CanvasJS.formatDate( e.value, "DD MMM YYYY");
+		}
 
 	},
 	axisY:{
@@ -46,20 +49,21 @@ var sensor1_chart = new CanvasJS.Chart("sensor1",{
 	},
 	data: [{
 		type: "spline",
-		xValueType: "dateTime",
-		xValueFormatString: "YYYY-MM-DD",
 		dataPoints: sensor1_data 
 	}]
 });
 
 var sensor2_chart = new CanvasJS.Chart("sensor2",{
 	title :{
-		text: "Living Room Temperature"
+		text: "Monkey Cowboy"
 	},			
 	axisX:{
 		title:"Time",
 		maximum: maxTime,
-		minimum: minTime
+		minimum: minTime,
+		labelFormatter: function (e) {
+			return CanvasJS.formatDate( e.value, "DD MMM YYYY");
+		}
 	},
 	axisY:{
 		title:"Temperature (°F)",
@@ -74,12 +78,15 @@ var sensor2_chart = new CanvasJS.Chart("sensor2",{
 
 var sensor3_chart = new CanvasJS.Chart("sensor3",{
 	title :{
-		text: "Bedroom Temperature"
+		text: "Hobo Gerbil"
 	},			
 	axisX:{
 		title:"Time",
 		maximum: maxTime,
 		minimum: minTime,
+		labelFormatter: function (e) {
+			return CanvasJS.formatDate( e.value, "DD MMM YYYY");
+		}
 	},
 	axisY:{
 		title:"Temperature (°F)",
@@ -94,12 +101,15 @@ var sensor3_chart = new CanvasJS.Chart("sensor3",{
 
 var sensor4_chart = new CanvasJS.Chart("sensor4",{
 	title :{
-		text: "Office Temperature"
+		text: "Trochee Wombat"
 	},			
 	axisX:{
 		title:"Time",
 		maximum: maxTime,
 		minimum: minTime,
+		labelFormatter: function (e) {
+			return CanvasJS.formatDate( e.value, "DD MMM YYYY");
+		}
 	},
 	axisY:{
 		title:"Temperature (°F)",
@@ -114,12 +124,15 @@ var sensor4_chart = new CanvasJS.Chart("sensor4",{
 
 var sensor5_chart = new CanvasJS.Chart("sensor5",{
 	title :{
-		text: "Sensor 5"
+		text: "Jester Jetpack"
 	},			
 	axisX:{
 		title:"Time",
 		maximum: maxTime,
 		minimum: minTime,
+		labelFormatter: function (e) {
+			return CanvasJS.formatDate( e.value, "DD MMM YYYY");
+		}
 	},
 	axisY:{
 		title:"Temperature (°F)",
