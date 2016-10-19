@@ -125,11 +125,6 @@ $(document).ready(function () {
         chart4.render();
         chart5.render();
 
-
-
-
-
-
         // Prepare the historical chart
         var time = new Date(2012,01,1);
         var temp = -500;    
@@ -240,6 +235,7 @@ $(document).ready(function () {
             }   
             console.log('l241');
         }
+
         // update displays after specified time. 
         setInterval(function(){updateChart();}, updateInterval);
         //setInterval(function(){updateSensorCharts();}, updateInterval);

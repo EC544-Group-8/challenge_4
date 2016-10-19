@@ -19,76 +19,134 @@ var parse_time = function(time, done) {
 	done(time_date);
 };
 
+var minTime = new Date(2016,09,16,22,1,1,1);
+var maxTime = new Date(2016,09,17,22,1,1,1);
+
+
+var sensor1_data = [];
+var sensor2_data = [];
+var sensor3_data = [];
+var sensor4_data = [];
+var sensor5_data = [];
+
+var sensor1_chart = new CanvasJS.Chart("sensor1",{
+	title :{
+		text: "Cranky Dentist"
+	},			
+	axisX:{
+		title:"Time",
+		maximum: maxTime,
+		minimum: minTime,
+		labelFormatter: function (e) {
+			return CanvasJS.formatDate( e.value, "DD MMM YYYY");
+		}
+
+	},
+	axisY:{
+		title:"Temperature (°F)",
+		maximum: 85,
+		minimum: 65,
+	},
+	data: [{
+		type: "spline",
+		dataPoints: sensor1_data 
+	}]
+});
+
+var sensor2_chart = new CanvasJS.Chart("sensor2",{
+	title :{
+		text: "Monkey Cowboy"
+	},			
+	axisX:{
+		title:"Time",
+		maximum: maxTime,
+		minimum: minTime,
+		labelFormatter: function (e) {
+			return CanvasJS.formatDate( e.value, "DD MMM YYYY");
+		}
+	},
+	axisY:{
+		title:"Temperature (°F)",
+		maximum: 85,
+		minimum: 65,
+	},
+	data: [{
+		type: "spline",
+		dataPoints: sensor2_data 
+	}]
+});
+
+var sensor3_chart = new CanvasJS.Chart("sensor3",{
+	title :{
+		text: "Hobo Gerbil"
+	},			
+	axisX:{
+		title:"Time",
+		maximum: maxTime,
+		minimum: minTime,
+		labelFormatter: function (e) {
+			return CanvasJS.formatDate( e.value, "DD MMM YYYY");
+		}
+	},
+	axisY:{
+		title:"Temperature (°F)",
+		maximum: 85,
+		minimum: 65,
+	},
+	data: [{
+		type: "spline",
+		dataPoints: sensor3_data 
+	}]
+});
+
+var sensor4_chart = new CanvasJS.Chart("sensor4",{
+	title :{
+		text: "Trochee Wombat"
+	},			
+	axisX:{
+		title:"Time",
+		maximum: maxTime,
+		minimum: minTime,
+		labelFormatter: function (e) {
+			return CanvasJS.formatDate( e.value, "DD MMM YYYY");
+		}
+	},
+	axisY:{
+		title:"Temperature (°F)",
+		maximum: 85,
+		minimum: 65,
+	},
+	data: [{
+		type: "spline",
+		dataPoints: sensor4_data 
+	}]
+});
+
+var sensor5_chart = new CanvasJS.Chart("sensor5",{
+	title :{
+		text: "Jester Jetpack"
+	},			
+	axisX:{
+		title:"Time",
+		maximum: maxTime,
+		minimum: minTime,
+		labelFormatter: function (e) {
+			return CanvasJS.formatDate( e.value, "DD MMM YYYY");
+		}
+	},
+	axisY:{
+		title:"Temperature (°F)",
+		maximum: 85,
+		minimum: 65,
+	},
+	data: [{
+		type: "spline",
+		dataPoints: sensor5_data 
+	}]
+});
+
 $(document).ready(function () {
-
 	window.onload = function () {
-
-		var realtime_data = []; 
-		var historical_data = [];
-		var sensor1_data = [];
-		var sensor2_data = [];
-		var sensor3_data = [];
-		var sensor4_data = [];
-
-		// var chart = new CanvasJS.Chart("scroller",{
-		// 	title :{
-		// 		text: "Real Time Average Temperature"
-		// 	},			
-		// 	axisX:{
-		// 		title:"Time (s)"
-		// 	},
-		// 	axisY:{
-		// 		title:"Temperature (°C)",
-		// 		maximum: 40,
-		// 		minimum: 0,
-		// 	},
-		// 	data: [{
-		// 		type: "line",
-		// 		dataPoints: realtime_data
-		// 	}]
-		// });
-
-		// var history_chart = new CanvasJS.Chart("history",{
-		// 	title :{
-		// 		text: "Historical Average Temperature"
-		// 	},			
-		// 	axisX:{
-		// 		title:"Time (s)"
-		// 	},
-		// 	axisY:{
-		// 		title:"Temperature (°C)",
-		// 		maximum: 30,
-		// 		minimum: 15,
-		// 	},
-		// 	data: [{
-		// 		type: "line",
-		// 		dataPoints: historical_data
-		// 	}]
-		// });
-
-		// Get current historical temp and time data
-		// $.get('/get_hist_avg_temp', function(hist_data) {
-		// 	// Loop through all historic data
-		// 	for (var i = 0; i < hist_data.length; i++) {
-		// 		// Get the temp and the time
-		// 		var xtime;
-		// 		var xtemp = parseFloat(hist_data[i].avg_reading);
-		// 		// Convert the time to the proper format			
-		// 		parse_time(hist_data[i].date_received, function(new_time) {
-		// 			xtime = new_time;
-		// 		});
-
-		// 		// Push it into the historic_data array for the chart
-		// 		historical_data.push({
-		// 			x:  xtime,
-		// 			y:  xtemp
-		// 		});
-		// 	}
-		// 	history_chart.render();
-		// });
-		var minTime = new Date(2016,09,16,22,1,1,1);
-		var maxTime = new Date(2016,09,17,22,1,1,1);
-		
 		$.get('/get_hist_sensor/1', function (s1_hist_data) {
 			console.log('GETTING HIST 1 DATA...');
 			for (var i = 0; i < s1_hist_data.length; i++) {
@@ -106,30 +164,6 @@ $(document).ready(function () {
 				});
 			}
 
-			// var minTime = new Date(2015,1,1);
-			// var maxTime = new Date(2017,1,1);
-
-			var sensor1_chart = new CanvasJS.Chart("sensor1",{
-				title :{
-					text: "Kitchen Temperature"
-				},			
-				axisX:{
-					title:"Time",
-
-					maximum: maxTime,
-					minimum: minTime,
-
-				},
-				axisY:{
-					title:"Temperature (°C)",
-					maximum: 85,
-					minimum: 65,
-				},
-				data: [{
-					type: "line",
-					dataPoints: sensor1_data 
-				}]
-			});
 			sensor1_chart.render();
 		});
 
@@ -150,25 +184,6 @@ $(document).ready(function () {
 				});
 			}
 
-			var sensor2_chart = new CanvasJS.Chart("sensor2",{
-				title :{
-					text: "Living Room Temperature"
-				},			
-				axisX:{
-					title:"Time",
-					maximum: maxTime,
-					minimum: minTime
-				},
-				axisY:{
-					title:"Temperature (°C)",
-					maximum: 85,
-					minimum: 65,
-				},
-				data: [{
-					type: "line",
-					dataPoints: sensor2_data 
-				}]
-			});
 			sensor2_chart.render();
 		});
 
@@ -188,25 +203,6 @@ $(document).ready(function () {
 					y: xtemp
 				});
 			}
-			var sensor3_chart = new CanvasJS.Chart("sensor3",{
-				title :{
-					text: "Bedroom Temperature"
-				},			
-				axisX:{
-					title:"Time",
-					maximum: maxTime,
-					minimum: minTime,
-				},
-				axisY:{
-					title:"Temperature (°C)",
-					maximum: 85,
-					minimum: 65,
-				},
-				data: [{
-					type: "line",
-					dataPoints: sensor3_data 
-				}]
-			});
 			sensor3_chart.render();
 		});
 
@@ -225,156 +221,90 @@ $(document).ready(function () {
 					y: xtemp
 				});
 			}
-			var sensor4_chart = new CanvasJS.Chart("sensor4",{
-				title :{
-					text: "Office Temperature"
-				},			
-				axisX:{
-					title:"Time",
-					maximum: maxTime,
-					minimum: minTime,
-				},
-				axisY:{
-					title:"Temperature (°C)",
-					maximum: 85,
-					minimum: 65,
-				},
-				data: [{
-					type: "line",
-					dataPoints: sensor4_data 
-				}]
-			});
 			sensor4_chart.render();
 		});
 
-		// Prepare the historical chart
-		var time = new Date(2012,01,1);
-		var temp = -500;	
-		var updateInterval = 1000;
-		var dataLength = 300; // number of dataPoints visible at any point
-
-		var prevTime = 0;
-		var updateChart = function () {
-			// Get current avg temp and time
-			$.get('/get_current_avg_temp', function(data) {
-				temp = parseFloat(data.avg_reading);
-				// console.log('DATA: '+data.date_received);
-				parse_time(data.date_received, function(new_time) {
-					time = new_time;
-				});
-			
-				// var currentTime = new Date();
-				// var offset = new Date().getTimezoneOffset();
-				// currentTime.setHours(currentTime.getHours() + (offset/-60));
-				// console.log("in chart.js current time is:");
-				console.log(time);
-				if(time > prevTime){
-					console.log("Time within conditional")
-					console.log(time);
-					console.log(prevTime);
-					// Update the charts if there is a new average reading
-					if (temp > -500){
-						// Add the new reading to the realtime chart
-						realtime_data.push({
-							x: time,
-							y: temp
-						});
-						// Add the new reading to the historical chart
-						// historical_data.push({
-						// 	x: time,
-						// 	y: temp
-						// });
-					}
-
-					// Scroll Realtime Chart if necessary
-					if (realtime_data.length > dataLength) {
-						// pop the oldest reading
-						realtime_data.shift();
-					}
-					
-					// Update Chart
-					chart.render();
-					//history_chart.render();
-					prevTime = time;
-				}
-			});
-
-		};
-
-		var last_measurement_updated_time = new Date();
-		// This function needs to update the current temp variable every interval
-		var updateSensorCharts = function() {
-			// Go to the route on the server that is designed to return the most recent average
-			$.get('/get_most_recent_measurement', function(last_measurement) {
-				console.log(last_measurement);
+		$.get('/get_hist_sensor/5', function (s5_hist_data) {
+			for (var i = 0; i < s5_hist_data.length; i++) {
 				var xtime;
-				var xtemp = parseFloat(last_measurement.reading);
+				var xtemp = parseFloat(s5_hist_data[i].reading);
 				
-				parse_time(last_measurement.date_received, function(new_time) {
+				parse_time(s5_hist_data[i].date_received, function(new_time) {
 					xtime = new_time;
 				});
 
-				// Only update this if its not the same as the last one updated
-				if(xtime != last_measurement_updated_time) {
-					if(last_measurement.sensor_id == 1) {
-						// Push it to the array for storage
-						sensor1_data.push({
-							x: xtime,
-							y: xtemp
-						});
-						sensor1_chart.render();
-					}
-					if(last_measurement.sensor_id == 2) {
-						// Push it to the array for storage
-						sensor2_data.push({
-							x: xtime,
-							y: xtemp
-						});
-						sensor2_chart.render();
-					}
-					if(last_measurement.sensor_id == 3) {
-						// Push it to the array for storage
-						sensor3_data.push({
-							x: xtime,
-							y: xtemp
-						});
-						sensor3_chart.render();
-					}
-					if(last_measurement.sensor_id == 4) {
-						// Push it to the array for storage
-						sensor4_data.push({
-							x: xtime,
-							y: xtemp
-						});
-						sensor4_chart.render();
-					}
-				}
-			});
-		};
+				// Push it to the array for storage
+				sensor5_data.push({
+					x: xtime,
+					y: xtemp
+				});
+			}
+			sensor5_chart.render();
+		});
 
-		// This function needs to update the current temp variable every interval
-		// var updateCurrentTemp = function() {
-		// 	// Go to the route on the server that is designed to return the most recent average
-		// 	$.get('/get_current_avg_temp', function(data) {
-		// 		// Update the HTML element that displays this data, and change its value
-		// 		$('#average').html(data.avg_reading.toFixed(2) + "&deg;C");
-		// 	});
-		// };
-		// generates first set of dataPoints
-		//updateChart(dataLength);
+		var dateFormat = "yy-mm-dd",
+		  from = $( "#from" )
+			.datepicker({
+			  defaultDate: "+1w",
+			  changeMonth: true,
+			  numberOfMonths: 1,
+		      dateFormat: "yy-mm-dd"
+			})
 
-		// Load Historical Data based on user choice (or default)
-		//history_chart.render();
-		// sensor1_chart.render();
-		// sensor2_chart.render();
-		// sensor3_chart.render();
-		// sensor4_chart.render();
-
-		// update displays after specified time. 
-		//setInterval(function(){updateChart(1);}, updateInterval);
-		//setInterval(function(){updateCurrentTemp();}, updateInterval);
-		//setInterval(function() {document.getElementById('heatMapFrame').contentWindow.location.reload();},updateInterval);
-		//setInterval(function(){updateSensorCharts();}, updateInterval);
-
-	};
+		from.on( "change", function() {
+			  to.datepicker( "option", "minDate", getDate( this ) );
+			  s = from.val();
+			  var year = parseInt(s.substring(0,4));
+			  var month = parseInt(s.substring(5,7)) - 1;
+			  var day = parseInt(s.substring(8,10));
+			  minTime = new Date(year,month,day,1,1,1);
+			  console.log("MinTime: " + minTime);
+			  sensor1_chart.options.axisX.minimum = minTime;
+			  sensor1_chart.render();
+			  sensor2_chart.options.axisX.minimum = minTime;
+			  sensor2_chart.render();
+			  sensor3_chart.options.axisX.minimum = minTime;
+			  sensor3_chart.render();
+			  sensor4_chart.options.axisX.minimum = minTime;
+			  sensor4_chart.render();
+			  sensor5_chart.options.axisX.minimum = minTime;
+			  sensor5_chart.render();
+		}),
+		to = $( "#to" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 1,
+			dateFormat: "yy-mm-dd"
+		})
+		to.on( "change", function() {
+			from.datepicker( "option", "maxDate", getDate( this ) );
+			s = to.val();
+			var year = parseInt(s.substring(0,4));
+			var month = parseInt(s.substring(5,7)) - 1;
+			var day = parseInt(s.substring(8,10));
+			maxTime = new Date(year,month,day,1,1,1);
+			console.log("MaxTime: " + maxTime);
+			sensor1_chart.options.axisX.maximum = maxTime;
+			sensor1_chart.render();
+			sensor2_chart.options.axisX.maximum = maxTime;
+			sensor2_chart.render();
+			sensor3_chart.options.axisX.maximum = maxTime;
+			sensor3_chart.render();
+			sensor4_chart.options.axisX.maximum = maxTime;
+			sensor4_chart.render();
+			sensor5_chart.options.axisX.maximum = maxTime;
+			sensor5_chart.render();
+		});
+		 
+		function getDate( element ) {
+		  var date;
+		  try {
+			date = $.datepicker.parseDate( dateFormat, element.value );
+		  } catch( error ) {
+			date = null;
+		  }
+	 
+		  return date;
+		}
+	}
 });
