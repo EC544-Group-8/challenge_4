@@ -48,7 +48,9 @@ app.post('/save_temp', function(req, res){
 // For retreiving the historic average data for each sensor 
 app.get('/get_hist_sensor/1', function(req,res) {
   Measurement.getAllBySensor('430034000947353235303037', function (err, hist_data) {
+    console.log('TRYING TO GET SENSOR 1 DATA...');
     if(hist_data) {
+      console.log('GOT THE GOODS FOR SENSOR 1');
       res.send(hist_data);
     }
   });
@@ -86,11 +88,14 @@ app.get('/get_hist_sensor/5', function(req,res) {
   });
 });
 
+
 //---------------------Real-Time--------------------------
 
 app.get('/get_most_recent_sensor/1', function(req,res) {
   Measurement.getMostRecentBySensor('430034000947353235303037',function (err, last_reading) {
     if(last_reading && last_reading[0]){
+      console.log('MADE IT INSIDE QUERY DB');
+      console.log(last_reading[0]);
       res.send(last_reading[0]);
     }
   });
