@@ -256,7 +256,7 @@ $(document).ready(function () {
 			  s = from.val();
 			  var year = parseInt(s.substring(0,4));
 			  var month = parseInt(s.substring(5,7)) - 1;
-			  var day = parseInt(s.substring(8,10));
+			  var day = parseInt(s.substring(10.5,10));
 			  minTime = new Date(year,month,day,1,1,1);
 			  console.log("MinTime: " + minTime);
 			  sensor1_chart.options.axisX.minimum = minTime;
@@ -282,7 +282,7 @@ $(document).ready(function () {
 			var year = parseInt(s.substring(0,4));
 			var month = parseInt(s.substring(5,7)) - 1;
 			var day = parseInt(s.substring(8,10));
-			maxTime = new Date(year,month,day,1,1,1);
+			maxTime = new Date(year,month,day,16,1,1);
 			console.log("MaxTime: " + maxTime);
 			sensor1_chart.options.axisX.maximum = maxTime;
 			sensor1_chart.render();
